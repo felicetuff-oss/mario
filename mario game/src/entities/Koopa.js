@@ -54,7 +54,7 @@ export function createKoopa() {
     koopa.draw = function (context) {
         if (this.killable.dead) {
             // For now, shell state
-            this.sprite.draw('shell', context, 0, -16);
+            this.sprite.draw('shell', context, this.pos.x, this.pos.y - 16);
             return;
         }
 
@@ -62,7 +62,7 @@ export function createKoopa() {
         const frame = (Math.floor(animationTime * 10) % 2 === 0) ? 'walk-left-1' : 'walk-left-2';
 
         // Draw offset by -16 in Y because sprite is 32 high but entity is 16 high (bottom aligned)
-        this.sprite.draw(frame, context, 0, -16);
+        this.sprite.draw(frame, context, this.pos.x, this.pos.y - 16);
     };
 
     return koopa;

@@ -50,7 +50,7 @@ export function createMario() {
     mario.sprite = loadMarioSprite();
 
     mario.draw = function (context) {
-        this.sprite.draw('idle-right', context, 0, 0);
+        this.sprite.draw('idle-right', context, this.pos.x, this.pos.y);
     };
 
     return mario;
