@@ -46,14 +46,14 @@ export function createGoomba() {
 
     goomba.draw = function (context) {
         if (this.killable.dead) {
-            this.sprite.draw('dead', context, 0, 0);
+            this.sprite.draw('dead', context, this.pos.x, this.pos.y);
             return;
         }
 
         animationTime += 1 / 60; // Approximate frame increment
         // Simple toggle for walk animation
         const frame = (Math.floor(animationTime * 10) % 2 === 0) ? 'walk-1' : 'walk-2';
-        this.sprite.draw(frame, context, 0, 0);
+        this.sprite.draw(frame, context, this.pos.x, this.pos.y);
     };
 
     return goomba;
